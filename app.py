@@ -25,30 +25,32 @@ def hello():
 @app.route('/featureExtractionAndKmeans', methods=['POST'])
 def extract_features_and_kmeans():
     request_body_json = request.json
+    #
+    # imgs = []
+    # print(request_body_json)
+    # request_body = json.loads(request_body_json)
+    # print(len(request_body["images"]))
+    #
+    # for image_64 in request_body["images"]:
+    #     print(image_64)
+    #     base64_decoded = base64.b64decode(image_64)
+    #     image = Image.open(io.BytesIO(base64_decoded))
+    #     image_np = np.array(image)
+    #     image_np = image_np/255
+    #     imgs.append(image_np)
+    #
+    # print(imgs[0])
+    #
+    # feature_extractor = FeatureExtraction()
+    # kmeans = KMeansClustering()
+    #
+    # feature_vectors = feature_extractor.extract_features(imgs)
+    #
+    # cluster_labels = kmeans.perform_clustering(feature_vectors, 3)
+    #
+    # cluster_labels = cluster_labels.tolist()
 
-    imgs = []
-    print(request_body_json)
-    request_body = json.loads(request_body_json)
-    print(len(request_body["images"]))
-
-    for image_64 in request_body["images"]:
-        print(image_64)
-        base64_decoded = base64.b64decode(image_64)
-        image = Image.open(io.BytesIO(base64_decoded))
-        image_np = np.array(image)
-        image_np = image_np/255
-        imgs.append(image_np)
-
-    print(imgs[0])
-
-    feature_extractor = FeatureExtraction()
-    kmeans = KMeansClustering()
-
-    feature_vectors = feature_extractor.extract_features(imgs)
-
-    cluster_labels = kmeans.perform_clustering(feature_vectors, 3)
-
-    cluster_labels = cluster_labels.tolist()
+    cluster_labels = "hello"
     return jsonify(cluster_labels)
 
 
