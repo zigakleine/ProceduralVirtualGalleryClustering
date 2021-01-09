@@ -1,0 +1,33 @@
+kind: Deployment
+metadata:
+  name: procedural-virtual-gallery-web-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: procedural-virtual-gallery-web
+  template:
+    metadata:
+      labels:
+        app: procedural-virtual-gallery-web
+    spec:
+      containers:
+        - image: zigakleine/procedural-virtual-gallery-web:latest
+          ports:
+            - containerPort: 5000
+              name: server
+              protocol: TCP
+          name: procedural-virtual-gallery-web
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: procedural-virtual-gallery-web
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 5000
+      protocol: TCP
+      targetPort: server
+  selector:
+    app: pdf-service
