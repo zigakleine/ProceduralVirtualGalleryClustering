@@ -1,0 +1,10 @@
+tensorflow==2.4.0
+numpy==1.19.5
+Flask==1.1.2
+Pillow==8.1.0
+scikit_learn==0.24.0
+gunicorn==20.0.4
+Jinja2==2.11.2
+itsdangerous==1.1.0
+MarkupSafe==1.1.1
+click==7.1.2
