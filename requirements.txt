@@ -1,4 +1,7 @@
-
+tensorflow==2.0.0
+numpy==1.19.5
+Pillow==8.1.0
+scikit_learn==0.24.0
 Flask==1.1.2
 gunicorn==20.0.4
 Jinja2==2.11.2
