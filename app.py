@@ -1,13 +1,13 @@
-import numpy as np
+# import numpy as np
 from flask import Flask, request, jsonify, render_template
-import base64
-from PIL import Image
-import io
+# import base64
+# from PIL import Image
+# import io
 import json
 
-from kmeansClustering import KMeansClustering
-
-from featureExtraction import FeatureExtraction
+# from kmeansClustering import KMeansClustering
+#
+# from featureExtraction import FeatureExtraction
 
 app = Flask(__name__)
 
