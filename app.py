@@ -3,6 +3,7 @@ import base64
 from PIL import Image
 import io
 import json
+import numpy as np
 
 from kmeansClustering import KMeansClustering
 
