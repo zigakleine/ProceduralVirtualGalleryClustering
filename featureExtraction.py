@@ -1,7 +1,6 @@
 from tensorflow.keras.applications import vgg16
 from tensorflow import keras
 
-
 class FeatureExtraction:
 
     def __init__(self):
