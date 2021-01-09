@@ -12,7 +12,6 @@ WORKDIR /app
 COPY . /app
 RUN pip3 --no-cache-dir install -r requirements.txt
 USER $USER
-
 EXPOSE 5000
 ENTRYPOINT ["python"]
 CMD ["app.py"]

@@ -2,8 +2,8 @@ from flask import Flask, request, jsonify, render_template
 import base64
 from PIL import Image
 import io
-import json
 import numpy as np
+import cv2
 
 from kmeansClustering import KMeansClustering
 
@@ -28,14 +28,16 @@ def extract_features_and_kmeans():
 
     imgs = []
     #print(request_body_json)
-    request_body = json.loads(request_body_json)
-    #print(len(request_body["images"]))
 
-    for image_64 in request_body["images"]:
+    #print(len(request_body["images"]))
+    IMG_SIZE = 224
+
+    for image_64 in request_body_json["images"]:
         #print(image_64)
         base64_decoded = base64.b64decode(image_64)
         image = Image.open(io.BytesIO(base64_decoded))
         image_np = np.array(image)
+        image_np = cv2.resize(image_np, (IMG_SIZE, IMG_SIZE), interpolation=cv2.INTER_LINEAR)
         image_np = image_np/255
         imgs.append(image_np)
 
