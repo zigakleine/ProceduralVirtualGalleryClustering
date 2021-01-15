@@ -3,8 +3,8 @@ import base64
 from PIL import Image
 import io
 import numpy as np
-#import cv2
-#opencv_python==4.4.0.44
+import cv2
+
 
 from kmeansClustering import KMeansClustering
 
@@ -38,7 +38,7 @@ def extract_features_and_kmeans():
         base64_decoded = base64.b64decode(image_64)
         image = Image.open(io.BytesIO(base64_decoded))
         image_np = np.array(image)
-        # image_np = cv2.resize(image_np, (IMG_SIZE, IMG_SIZE), interpolation=cv2.INTER_LINEAR)
+        image_np = cv2.resize(image_np, (IMG_SIZE, IMG_SIZE), interpolation=cv2.INTER_LINEAR)
         image_np = image_np/255
         imgs.append(image_np)
 
